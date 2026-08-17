@@ -16,4 +16,15 @@ public class Room {
     private ConcurrentHashMap<String, User> users = new ConcurrentHashMap<>();
     @Builder.Default
     private ConcurrentHashMap<String, User> pendingReq = new ConcurrentHashMap<>();
+
+    public void addUser(String name,User user){
+        this.users.put(name,user);
+    }
+    public void addPendingReq(String name,User user){
+        this.pendingReq.put(name,user);
+    }
+    public User getAdmin(){
+        User admin = this.users.get(adminId);
+        return admin;
+    }
 }
